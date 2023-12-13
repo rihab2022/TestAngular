@@ -1,0 +1,65 @@
+<div class="container">
+  <form [formGroup]="studentForm" (ngSubmit)="add()">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">name</span>
+      </div>
+      <input
+        type="text"
+        aria-label="name"
+        id="name"
+        name="name"
+        formControlName="name"
+        class="form-control"
+      />
+      <div
+        *ngIf="studentForm.get('name')!.touched && studentForm.get('name')!.invalid"
+        class="alert alert-danger"
+      >
+        Name is required
+      </div>
+    </div>
+    <br />
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">email</span>
+      </div>
+      <textarea
+        type="text"
+        aria-label="email"
+        id="email"
+        name="email"
+        formControlName="email"
+        class="form-control"
+      ></textarea>
+      <div
+        *ngIf="studentForm.get('email')!.touched && studentForm.get('email')!.invalid"
+        class="alert alert-danger"
+      >
+        Email is required
+        <div
+          *ngIf="studentForm.get('email')!.errors?.['minlength']"
+          class="alert alert-danger"
+        >
+          Minimum length is 10
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">gender</span>
+      </div>
+      <input
+        type="text"
+        aria-label="gender"
+        id="gender"
+        name="gender"
+        formControlName="gender"
+        class="form-control"
+      />
+    </div>
+    <br />
+    <input type="submit" class="btn btn-primary" /> 
+  </form>
+</div>

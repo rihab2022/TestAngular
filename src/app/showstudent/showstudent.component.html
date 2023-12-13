@@ -1,0 +1,8 @@
+<h2>Student Details</h2>
+<p>Selected Student ID: {{ id }}</p>
+
+<ul>
+  <li *ngFor="let student of studentlist">
+    {{ student.id }} - {{ student.name }} - {{ student.email }} - {{ student.gender }}
+  </li>
+</ul>
